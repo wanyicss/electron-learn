@@ -10,6 +10,11 @@ import Amap from './demos/Amap.js'
 import ShowLocalImg from './demos/ShowLocalImg.js'
 import Darkmode from './demos/Darkmode.js'
 import Dragdrop from './demos/Dragdrop.js'
+import KeyboardShortcutsGlobal from './demos/keyboard-shortcuts/global.js'
+import KeyboardShortcutsInterceptionFromMain from './demos/keyboard-shortcuts/interception-from-main.js'
+import KeyboardShortcutsLocal from './demos/keyboard-shortcuts/local.js'
+import KeyboardShortcutsWebapis from './demos/keyboard-shortcuts/web-apis.js'
+
 
 class App extends React.Component {
   constructor (props) {
@@ -21,7 +26,11 @@ class App extends React.Component {
       'Amap': <Amap />,
       'ShowLocalImg': <ShowLocalImg />,
       'Darkmode': <Darkmode />,
-      'Dragdrop': <Dragdrop />
+      'Dragdrop': <Dragdrop />,
+      'keyboard-shortcuts-global': <KeyboardShortcutsGlobal />,
+      'keyboard-shortcuts-interception-from-main': <KeyboardShortcutsInterceptionFromMain />,
+      'keyboard-shortcuts-local': <KeyboardShortcutsLocal />,
+      'keyboard-shortcuts-webapis': <KeyboardShortcutsWebapis />
     }
     this.state = {
       selectkey : 'Start',
@@ -45,6 +54,12 @@ class App extends React.Component {
           <Menu.Item key='ShowLocalImg'>预览本地图片</Menu.Item>
           <Menu.Item key='Darkmode'>主题色切换</Menu.Item>
           <Menu.Item key='Dragdrop'>拖拽文件</Menu.Item>
+          <Menu.SubMenu key='keyboard-shortcuts' title='快捷键'>
+            <Menu.Item key='keyboard-shortcuts-global'>global</Menu.Item>
+            <Menu.Item key='keyboard-shortcuts-interception-from-main'>interception-from-main</Menu.Item>
+            <Menu.Item key='keyboard-shortcuts-local'>local</Menu.Item>
+            <Menu.Item key='keyboard-shortcuts-webapis'>keyboard-shortcuts-webapis</Menu.Item>
+          </Menu.SubMenu>
         </Menu>
       </div>,
       <div className='content'>

@@ -5,7 +5,9 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 
 const darkmode = require('./darkmode/main')
 const draganddrop = require('./drag-and-drop/main')
-
+const keyboard_shortcuts_global = require('./keyboard-shortcuts/global/main')
+const interception_from_main = require('./keyboard-shortcuts/interception-from-main/main')
+const local = require('./keyboard-shortcuts/local/main')
 
 let progressInterval = null
 function createWindow() {
@@ -64,17 +66,21 @@ function createWindow() {
     win.webContents.send('amapkey', amapkey)
   })
 
-  darkmode(ipcMain)
-  draganddrop(ipcMain)
 
   win.loadURL('http://localhost:9000')
 
-  
-
   win.webContents.openDevTools();
+
+  darkmode(ipcMain)
+  draganddrop(ipcMain)
+  interception_from_main(win)
+  local()
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  keyboard_shortcuts_global()
+  createWindow()
+});
 
 app.on('before-quit', () => {
   clearInterval(progressInterval)
@@ -88,6 +94,7 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
+    keyboard_shortcuts_global()
     createWindow()
   }
 })
