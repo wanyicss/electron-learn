@@ -3,6 +3,10 @@ const path = require('path');
 const amapkey = require('./amapkey')
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 
+const darkmode = require('./darkmode/main')
+const draganddrop = require('./drag-and-drop/main')
+
+
 let progressInterval = null
 function createWindow() {
   const win = new BrowserWindow({
@@ -56,10 +60,12 @@ function createWindow() {
     });
   })
   
-
   ipcMain.on('getAmapkey', (event) => {
     win.webContents.send('amapkey', amapkey)
   })
+
+  darkmode(ipcMain)
+  draganddrop(ipcMain)
 
   win.loadURL('http://localhost:9000')
 

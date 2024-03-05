@@ -1,5 +1,10 @@
+
 const { contextBridge, ipcRenderer } = require('electron')
 const fs = require('fs')
+
+require('./darkmode/preload.js')
+require('./drag-and-drop/preload.js')
+
 
 contextBridge.exposeInMainWorld('electronAPI', {
   startprogressbar: () => ipcRenderer.send('startprogressbar'),

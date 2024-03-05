@@ -2,10 +2,15 @@
   "name": "electron-learn",
   "version": "1.0.0",
   "main": "./src/main/index.js",
+  "description": "Software for Learning Electron",
   "scripts": {
     "start": "concurrently \"webpack serve --config webpack.config.js\" \"npm:electron\"",
-    "electron": "electron ."
+    "electron": "electron .",
+    "electrondemo": "electron fiddles/ipc/pattern-3/main.js"
   },
+  "keywords": [
+    "electron", "react", "webpack"
+  ],
   "author": "wanyi.css",
   "devDependencies": {
     "@babel/core": "^7.24.0",

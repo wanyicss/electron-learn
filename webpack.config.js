@@ -13,10 +13,6 @@ module.exports = {
   target: 'web',
   module: {
     rules: [
-      // {
-      //   test: /\.html$/,
-      //   use: 'html-loader'
-      // },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,

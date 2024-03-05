@@ -8,6 +8,8 @@ import Notification from './demos/Notification.js'
 import Progressbar from './demos/Progressbar.js'
 import Amap from './demos/Amap.js'
 import ShowLocalImg from './demos/ShowLocalImg.js'
+import Darkmode from './demos/Darkmode.js'
+import Dragdrop from './demos/Dragdrop.js'
 
 class App extends React.Component {
   constructor (props) {
@@ -17,7 +19,9 @@ class App extends React.Component {
       'Notification': <Notification />,
       'Progressbar': <Progressbar />,
       'Amap': <Amap />,
-      'ShowLocalImg': <ShowLocalImg />
+      'ShowLocalImg': <ShowLocalImg />,
+      'Darkmode': <Darkmode />,
+      'Dragdrop': <Dragdrop />
     }
     this.state = {
       selectkey : 'Start',
@@ -39,7 +43,8 @@ class App extends React.Component {
           <Menu.Item key='Progressbar'>显示进度条</Menu.Item>
           <Menu.Item key='Amap'>高德地图</Menu.Item>
           <Menu.Item key='ShowLocalImg'>预览本地图片</Menu.Item>
-
+          <Menu.Item key='Darkmode'>主题色切换</Menu.Item>
+          <Menu.Item key='Dragdrop'>拖拽文件</Menu.Item>
         </Menu>
       </div>,
       <div className='content'>
