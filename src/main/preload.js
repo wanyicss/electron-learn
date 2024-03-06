@@ -2,16 +2,16 @@
 const { contextBridge, ipcRenderer } = require('electron')
 const fs = require('fs')
 
-require('./darkmode/preload.js')
-require('./drag-and-drop/preload.js')
-require('./notifications/preload.js')
-require('./offscreen-rendering/preload.js')
-require('./ipc/preload.js')
-require('./media/screenshot/preload.js')
-require('./menus/customize-menus/preload.js')
-require('./quick-start/preload.js')
-require('./screen/fit-screen/preload.js')
-require('./dialogs/preload.js')
+require('../features/darkmode/preload.js')
+require('../features/drag-and-drop/preload.js')
+require('../features/notifications/preload.js')
+require('../features/offscreen-rendering/preload.js')
+require('../features/ipc/preload.js')
+require('../features/media/screenshot/preload.js')
+require('../features/menus/customize-menus/preload.js')
+require('../features/quick-start/preload.js')
+require('../features/screen/fit-screen/preload.js')
+require('../features/dialogs/preload.js')
 
 
 contextBridge.exposeInMainWorld('electronAPI', {

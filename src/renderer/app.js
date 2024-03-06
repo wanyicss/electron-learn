@@ -3,28 +3,27 @@ import React from 'react';
 import { Menu, Button } from 'antd';
 import './app.less'
 
-import Start from './demos/quick-start.js'
-import Notification from './demos/Notification.js'
-import Progressbar from './demos/Progressbar.js'
-import Amap from './demos/Amap.js'
-import ShowLocalImg from './demos/ShowLocalImg.js'
-import Darkmode from './demos/Darkmode.js'
-import Dragdrop from './demos/Dragdrop.js'
-import KeyboardShortcutsGlobal from './demos/keyboard-shortcuts/global.js'
-import KeyboardShortcutsInterceptionFromMain from './demos/keyboard-shortcuts/interception-from-main.js'
-import KeyboardShortcutsLocal from './demos/keyboard-shortcuts/local.js'
-import KeyboardShortcutsWebapis from './demos/keyboard-shortcuts/web-apis.js'
-import MacosDockMenu from './demos/macos-dock-menu.js'
-import NotificationsRenderer from './demos/notifications/renderer.js'
-import OffscreenRender from './demos/offscreen-rendering.js'
-import OnlineDetection from './demos/online-detection.js'
-import RecentDocuments from './demos/recent-documents.js'
-import Ipc from './demos/ipc.js'
-import Screenshot from './demos/screenshot.js';
-import CustomizeMenus from './demos/menus/customize-menus.js';
-import ExternalLink from './demos/menus/externallink.js'
-import Fitscreen from './demos/fit-screen.js'
-import Dialog from './demos/dialogs.js'
+import Start from 'features/quick-start'
+import Progressbar from 'features/Progressbar'
+import Amap from 'features/amap'
+import ShowLocalImg from 'features/previewImg'
+import Darkmode from 'features/darkmode'
+import Dragdrop from 'features/drag-and-drop'
+import KeyboardShortcutsGlobal from 'features/keyboard-shortcuts/global'
+import KeyboardShortcutsInterceptionFromMain from 'features/keyboard-shortcuts/interception-from-main'
+import KeyboardShortcutsLocal from 'features/keyboard-shortcuts/local'
+import KeyboardShortcutsWebapis from 'features/keyboard-shortcuts/web-apis'
+import MacosDockMenu from 'features/macos-dock-menu'
+import NotificationsRenderer from 'features/notifications'
+import OffscreenRender from 'features/offscreen-rendering'
+import OnlineDetection from 'features/online-detection'
+import RecentDocuments from 'features/recent-documents'
+import Ipc from 'features/ipc'
+import Screenshot from 'features/screenshot';
+import CustomizeMenus from 'features/menus/customize-menus';
+import ExternalLink from 'features/menus/externallink'
+import Fitscreen from 'features/screen/fit-screen'
+import Dialog from 'features/dialogs'
 
 
 class App extends React.Component {
@@ -32,7 +31,6 @@ class App extends React.Component {
     super(props)
     this.contents = {
       'Start': <Start />,
-      'Notification': <Notification />,
       'Progressbar': <Progressbar />,
       'Amap': <Amap />,
       'ShowLocalImg': <ShowLocalImg />,
@@ -71,7 +69,6 @@ class App extends React.Component {
         <div className='menu'>
           <Menu selectkey={this.state.selectkey} onClick={this.handleClick}>
             <Menu.Item key='Start'>HELLO WORLD</Menu.Item>
-            <Menu.Item key='Notification'>桌面通知</Menu.Item>
             <Menu.Item key='Progressbar'>显示进度条</Menu.Item>
             <Menu.Item key='Amap'>高德地图</Menu.Item>
             <Menu.Item key='ShowLocalImg'>预览本地图片</Menu.Item>

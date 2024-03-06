@@ -58,6 +58,18 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    // 自动解析文件扩展名，import时可以不带扩展
+    extensions: ['.js', '.jsx', '.json'],
+    
+    // 指定路径别名
+    alias: {
+      features: path.resolve(__dirname, 'src/features')
+    },
+    
+    // 指定默认文件名
+    mainFiles: ['index'], // 当导入的是一个目录时，Webpack将默认查找的文件名列表
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/renderer/index.html' // 确保这里的路径指向你的HTML模版文件
