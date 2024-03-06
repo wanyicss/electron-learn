@@ -18,6 +18,7 @@ const customize_menus = require('./menus/customize-menus/main')
 const externallink = require('./menus/externallink/main')
 const quickstart = require('./quick-start/main')
 const fitscreen = require('./screen/fit-screen/main')
+const dialog_main = require('./dialogs/main')
 
 let progressInterval = null
 function createWindow() {
@@ -25,7 +26,6 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      webviewTag: true,
       contextIsolation: true, // 启用上下文隔离
       nodeIntegration: false,
       preload: path.join(__dirname, 'preload.js')
@@ -95,6 +95,7 @@ function createWindow() {
   externallink(win)
   quickstart(win)
   fitscreen(win)
+  dialog_main()
 }
 
 app.on('ready', () => {

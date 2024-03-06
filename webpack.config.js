@@ -60,12 +60,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/renderer/index.html', // 确保这里的路径指向你的HTML模版文件
-      filename: 'index.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/renderer/child.html',// 确保这里的路径指向你的HTML模版文件
-      filename: 'child.html'
+      template: './src/renderer/index.html' // 确保这里的路径指向你的HTML模版文件
     })
   ],
   devServer: {

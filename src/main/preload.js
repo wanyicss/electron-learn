@@ -11,6 +11,7 @@ require('./media/screenshot/preload.js')
 require('./menus/customize-menus/preload.js')
 require('./quick-start/preload.js')
 require('./screen/fit-screen/preload.js')
+require('./dialogs/preload.js')
 
 
 contextBridge.exposeInMainWorld('electronAPI', {
