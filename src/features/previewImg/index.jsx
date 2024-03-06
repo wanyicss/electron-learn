@@ -6,8 +6,8 @@ class Demo extends React.Component {
   }
 
   handleclick = () => {
-    window.electronAPI.openfiledialog()
-    window.electronAPI.previewfile(data => {
+    window.previewImgAPI.openfiledialog()
+    window.previewImgAPI.previewfile(data => {
       const imgElement = document.getElementById('imagePreview');
       const base64Image = `data:image/png;base64,${data}`;
       imgElement.src = base64Image; // 设置图片的base64字符串为src属性，以显示图片

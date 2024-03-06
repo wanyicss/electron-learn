@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron/main')
+const { ipcMain } = require('electron')
+
 const fs = require('fs')
 const path = require('path')
 let win = null
@@ -22,7 +24,7 @@ function createWindow () {
   console.log(`The screenshot has been successfully saved to ${imglocalpath}`)
 }
 
-module.exports = (app, ipcMain) => {
+module.exports = (app) => {
   ipcMain.on('page2img', (event, filePath) => {
     createWindow()
   })

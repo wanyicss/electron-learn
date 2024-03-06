@@ -15,7 +15,7 @@ https.get('https://img.alicdn.com/imgextra/i1/O1CN012YuL9f1hnz7fqLIOX_!!60000000
   response.pipe(icon)
 })
 
-module.exports = (ipcMain) => {
+module.exports = () => {
   ipcMain.on('ondragstart', (event, filePath) => {
     event.sender.startDrag({
       file: path.join(__dirname, filePath),

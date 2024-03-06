@@ -9,12 +9,12 @@ class Demo extends React.Component {
   }
 
   componentWillUnmount() {
-    window.electronAPI.stopprogressbar()
+    window.progessbarAPI.stopprogressbar()
   }
 
   handleClick = () => {
-    if(!this.state.show) window.electronAPI.startprogressbar()
-    else window.electronAPI.stopprogressbar()
+    if(!this.state.show) window.progessbarAPI.startprogressbar()
+    else window.progessbarAPI.stopprogressbar()
     this.setState({
       show: !this.state.show
     })

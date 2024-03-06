@@ -1,6 +1,6 @@
-const { nativeTheme } = require('electron/main')
+const { nativeTheme, ipcMain } = require('electron/main')
 
-module.exports = (ipcMain) => {
+module.exports = () => {
   ipcMain.handle('dark-mode:toggle', () => {
     if (nativeTheme.shouldUseDarkColors) {
       nativeTheme.themeSource = 'light'

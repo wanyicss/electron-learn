@@ -7,8 +7,8 @@ class Demo extends React.Component {
 
   componentDidMount() {
     if(!document.getElementById('amapsdk')){
-      window.electronAPI.getAmapkey()
-      window.electronAPI.setWindowAmapkey((amapkey) => {
+      window.amapAPI.getAmapkey()
+      window.amapAPI.setWindowAmapkey((amapkey) => {
         // 创建一个新的script元素
         var script = document.createElement('script');
   
