@@ -8,6 +8,10 @@ const draganddrop = require('./drag-and-drop/main')
 const keyboard_shortcuts_global = require('./keyboard-shortcuts/global/main')
 const interception_from_main = require('./keyboard-shortcuts/interception-from-main/main')
 const local = require('./keyboard-shortcuts/local/main')
+const macos_dock_menu = require('./macos-dock-menu/main')
+const notifications = require('./notifications/main')
+const offscreen_rendering = require('./offscreen-rendering/main')
+const recent_documents = require('./recent-documents/main')
 
 let progressInterval = null
 function createWindow() {
@@ -75,11 +79,15 @@ function createWindow() {
   draganddrop(ipcMain)
   interception_from_main(win)
   local()
+  notifications(ipcMain)
+  offscreen_rendering(app, ipcMain)
+  recent_documents(app)
 }
 
 app.on('ready', () => {
   keyboard_shortcuts_global()
   createWindow()
+  macos_dock_menu(app)
 });
 
 app.on('before-quit', () => {

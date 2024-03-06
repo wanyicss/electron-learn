@@ -14,8 +14,11 @@ import KeyboardShortcutsGlobal from './demos/keyboard-shortcuts/global.js'
 import KeyboardShortcutsInterceptionFromMain from './demos/keyboard-shortcuts/interception-from-main.js'
 import KeyboardShortcutsLocal from './demos/keyboard-shortcuts/local.js'
 import KeyboardShortcutsWebapis from './demos/keyboard-shortcuts/web-apis.js'
-
-
+import MacosDockMenu from './demos/macos-dock-menu.js'
+import NotificationsRenderer from './demos/notifications/renderer.js'
+import Page2img from './demos/offscreen-rendering/page2img.js'
+import OnlineDetection from './demos/online-detection.js'
+import RecentDocuments from './demos/recent-documents.js'
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -30,7 +33,12 @@ class App extends React.Component {
       'keyboard-shortcuts-global': <KeyboardShortcutsGlobal />,
       'keyboard-shortcuts-interception-from-main': <KeyboardShortcutsInterceptionFromMain />,
       'keyboard-shortcuts-local': <KeyboardShortcutsLocal />,
-      'keyboard-shortcuts-webapis': <KeyboardShortcutsWebapis />
+      'keyboard-shortcuts-webapis': <KeyboardShortcutsWebapis />,
+      'macos-dock-menu': <MacosDockMenu />,
+      'notifications_renderer':<NotificationsRenderer />,
+      'page2img': <Page2img />,
+      'online-detection': <OnlineDetection />,
+      'recent-documents': <RecentDocuments />
     }
     this.state = {
       selectkey : 'Start',
@@ -60,6 +68,12 @@ class App extends React.Component {
             <Menu.Item key='keyboard-shortcuts-local'>local</Menu.Item>
             <Menu.Item key='keyboard-shortcuts-webapis'>keyboard-shortcuts-webapis</Menu.Item>
           </Menu.SubMenu>
+          <Menu.Item key='macos-dock-menu'>macos-dock-menu</Menu.Item>
+          <Menu.Item key='notifications_renderer'>notifications_renderer</Menu.Item>
+          <Menu.Item key='page2img'>page2img</Menu.Item>
+          <Menu.Item key='online-detection'>online-detection</Menu.Item>
+          <Menu.Item key='recent-documents'>recent-documents</Menu.Item>
+
         </Menu>
       </div>,
       <div className='content'>
