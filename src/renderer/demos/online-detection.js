@@ -14,6 +14,11 @@ class Demo extends React.Component {
     
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('online', this.onlineStatusIndicator)
+    window.removeEventListener('offline', this.onlineStatusIndicator)
+  }
+
   onlineStatusIndicator () {
     document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline'
   }

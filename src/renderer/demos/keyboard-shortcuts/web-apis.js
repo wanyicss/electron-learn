@@ -6,10 +6,16 @@ class Demo extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('keyup', (event) => {
-      document.getElementById('last-keypress').innerText = event.key
-      console.log(`You pressed ${event.key}`)
-    }, true)
+    window.addEventListener('keyup', this.showPressKey)
+  }
+
+  showPressKey = (event) => {
+    document.getElementById('last-keypress').innerText = event.key
+    console.log(`You pressed ${event.key}`)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keyup', this.showPressKey)
   }
 
   render() {

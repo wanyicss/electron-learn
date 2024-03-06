@@ -16,7 +16,7 @@ import KeyboardShortcutsLocal from './demos/keyboard-shortcuts/local.js'
 import KeyboardShortcutsWebapis from './demos/keyboard-shortcuts/web-apis.js'
 import MacosDockMenu from './demos/macos-dock-menu.js'
 import NotificationsRenderer from './demos/notifications/renderer.js'
-import Page2img from './demos/offscreen-rendering/page2img.js'
+import OffscreenRender from './demos/offscreen-rendering.js'
 import OnlineDetection from './demos/online-detection.js'
 import RecentDocuments from './demos/recent-documents.js'
 import Ipc from './demos/ipc.js'
@@ -44,7 +44,7 @@ class App extends React.Component {
       'keyboard-shortcuts-webapis': <KeyboardShortcutsWebapis />,
       'macos-dock-menu': <MacosDockMenu />,
       'notifications_renderer':<NotificationsRenderer />,
-      'page2img': <Page2img />,
+      'offscreen-render': <OffscreenRender />,
       'online-detection': <OnlineDetection />,
       'recent-documents': <RecentDocuments />,
       'ipc': <Ipc />,
@@ -81,21 +81,21 @@ class App extends React.Component {
               <Menu.Item key='keyboard-shortcuts-global'>global</Menu.Item>
               <Menu.Item key='keyboard-shortcuts-interception-from-main'>interception-from-main</Menu.Item>
               <Menu.Item key='keyboard-shortcuts-local'>local</Menu.Item>
-              <Menu.Item key='keyboard-shortcuts-webapis'>keyboard-shortcuts-webapis</Menu.Item>
+              <Menu.Item key='keyboard-shortcuts-webapis'>键盘输入</Menu.Item>
             </Menu.SubMenu>
-            <Menu.Item key='macos-dock-menu'>macos-dock-menu</Menu.Item>
-            <Menu.Item key='notifications_renderer'>notifications_renderer</Menu.Item>
-            <Menu.Item key='page2img'>page2img</Menu.Item>
-            <Menu.Item key='online-detection'>online-detection</Menu.Item>
-            <Menu.Item key='recent-documents'>recent-documents</Menu.Item>
+            <Menu.Item key='macos-dock-menu'>自定义Dock菜单</Menu.Item>
+            <Menu.Item key='notifications_renderer'>桌面通知</Menu.Item>
+            <Menu.Item key='offscreen-render'>离线渲染</Menu.Item>
+            <Menu.Item key='online-detection'>网络连接检测</Menu.Item>
+            <Menu.Item key='recent-documents'>最近打开过的文档</Menu.Item>
             <Menu.Item key='ipc'>进程通信</Menu.Item>
             <Menu.Item key='screenshot'>窗口截图</Menu.Item>
             <Menu.SubMenu key='menus' title='自定义菜单'>
-              <Menu.Item key='customize-menus'>customize-menus</Menu.Item>
-              <Menu.Item key='external-link'>external-link</Menu.Item>
+              <Menu.Item key='customize-menus'>窗口内菜单</Menu.Item>
+              <Menu.Item key='external-link'>外链跳转</Menu.Item>
             </Menu.SubMenu>
             <Menu.Item key='fit-screen'>窗口尺寸自适应</Menu.Item>
-            <Menu.Item key='dialog'>唤起本地对话框</Menu.Item>
+            <Menu.Item key='dialog'>本地对话框</Menu.Item>
           </Menu>
         </div>
         <div className='content'>
