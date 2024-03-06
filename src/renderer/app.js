@@ -3,7 +3,7 @@ import React from 'react';
 import { Menu, Button } from 'antd';
 import './app.less'
 
-import Start from './demos/Start.js'
+import Start from './demos/quick-start.js'
 import Notification from './demos/Notification.js'
 import Progressbar from './demos/Progressbar.js'
 import Amap from './demos/Amap.js'
@@ -19,6 +19,13 @@ import NotificationsRenderer from './demos/notifications/renderer.js'
 import Page2img from './demos/offscreen-rendering/page2img.js'
 import OnlineDetection from './demos/online-detection.js'
 import RecentDocuments from './demos/recent-documents.js'
+import Ipc from './demos/ipc.js'
+import Screenshot from './demos/screenshot.js';
+import CustomizeMenus from './demos/menus/customize-menus.js';
+import ExternalLink from './demos/menus/externallink.js'
+import Fitscreen from './demos/fit-screen.js'
+
+
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -38,8 +45,14 @@ class App extends React.Component {
       'notifications_renderer':<NotificationsRenderer />,
       'page2img': <Page2img />,
       'online-detection': <OnlineDetection />,
-      'recent-documents': <RecentDocuments />
+      'recent-documents': <RecentDocuments />,
+      'ipc': <Ipc />,
+      'screenshot': <Screenshot />,
+      'customize-menus': <CustomizeMenus />,
+      'external-link': <ExternalLink />,
+      'fit-screen': <Fitscreen />
     }
+
     this.state = {
       selectkey : 'Start',
       content: this.contents[this.selectkey]
@@ -73,7 +86,13 @@ class App extends React.Component {
           <Menu.Item key='page2img'>page2img</Menu.Item>
           <Menu.Item key='online-detection'>online-detection</Menu.Item>
           <Menu.Item key='recent-documents'>recent-documents</Menu.Item>
-
+          <Menu.Item key='ipc'>进程通信</Menu.Item>
+          <Menu.Item key='screenshot'>窗口截图</Menu.Item>
+          <Menu.SubMenu key='menus' title='自定义菜单'>
+            <Menu.Item key='customize-menus'>customize-menus</Menu.Item>
+            <Menu.Item key='external-link'>external-link</Menu.Item>
+          </Menu.SubMenu>
+          <Menu.Item key='fit-screen'>窗口尺寸自适应</Menu.Item>
         </Menu>
       </div>,
       <div className='content'>

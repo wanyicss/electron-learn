@@ -12,6 +12,12 @@ const macos_dock_menu = require('./macos-dock-menu/main')
 const notifications = require('./notifications/main')
 const offscreen_rendering = require('./offscreen-rendering/main')
 const recent_documents = require('./recent-documents/main')
+const ipc1 = require('./ipc/main')
+const screenshot = require('./media/screenshot/main')
+const customize_menus = require('./menus/customize-menus/main')
+const externallink = require('./menus/externallink/main')
+const quickstart = require('./quick-start/main')
+const fitscreen = require('./screen/fit-screen/main')
 
 let progressInterval = null
 function createWindow() {
@@ -19,6 +25,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
+      webviewTag: true,
       contextIsolation: true, // 启用上下文隔离
       nodeIntegration: false,
       preload: path.join(__dirname, 'preload.js')
@@ -82,6 +89,12 @@ function createWindow() {
   notifications(ipcMain)
   offscreen_rendering(app, ipcMain)
   recent_documents(app)
+  ipc1(win)
+  screenshot()
+  customize_menus(win)
+  externallink(win)
+  quickstart(win)
+  fitscreen(win)
 }
 
 app.on('ready', () => {

@@ -6,6 +6,12 @@ require('./darkmode/preload.js')
 require('./drag-and-drop/preload.js')
 require('./notifications/preload.js')
 require('./offscreen-rendering/preload.js')
+require('./ipc/preload.js')
+require('./media/screenshot/preload.js')
+require('./menus/customize-menus/preload.js')
+require('./quick-start/preload.js')
+require('./screen/fit-screen/preload.js')
+
 
 contextBridge.exposeInMainWorld('electronAPI', {
   startprogressbar: () => ipcRenderer.send('startprogressbar'),

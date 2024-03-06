@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack serve --config webpack.config.js\" \"npm:electron\"",
     "electron": "electron .",
-    "electrondemo": "electron fiddles/features/recent-documents/main.js"
+    "electrondemo": "electron fiddles/native-ui/notifications/main.js"
   },
   "keywords": [
     "electron", "react", "webpack"
