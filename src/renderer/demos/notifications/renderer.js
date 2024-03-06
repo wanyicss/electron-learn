@@ -13,8 +13,9 @@ class Demo extends React.Component {
     const NOTIFICATION_TITLE = 'Title'
     const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
     const CLICK_MESSAGE = 'Notification clicked!'
+    const icon = 'https://via.placeholder.com/150'
 
-    new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+    new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY, icon })
     .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
   }
 
