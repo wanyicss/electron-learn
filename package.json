@@ -9,8 +9,14 @@
     "electrondemo": "electron fiddles/native-ui/dialogs/error-dialog/main.js"
   },
   "keywords": [
-    "electron", "react", "webpack"
+    "electron",
+    "react",
+    "webpack"
   ],
+  "_moduleAliases": {
+    "@features": "src/features",
+    "@utils": "src/utils"
+  },
   "author": "wanyi.css",
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -34,7 +40,9 @@
   "license": "MIT",
   "dependencies": {
     "antd": "^4.24.2",
+    "module-alias": "^2.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "repository": "https://github.com/wanyicss/electron-learn.git"
 }

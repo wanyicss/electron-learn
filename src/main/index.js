@@ -1,26 +1,29 @@
 
 const path = require('path');
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron');
+require('module-alias/register');
 
-const darkmode = require('../features/darkmode/main')
-const amap = require('../features/amap/main')
-const draganddrop = require('../features/drag-and-drop/main')
-const keyboard_shortcuts_global = require('../features/keyboard-shortcuts/global/main')
-const interception_from_main = require('../features/keyboard-shortcuts/interception-from-main/main')
-const local = require('../features/keyboard-shortcuts/local/main')
-const macos_dock_menu = require('../features/macos-dock-menu/main')
-const notifications = require('../features/notifications/main')
-const offscreen_rendering = require('../features/offscreen-rendering/main')
-const recent_documents = require('../features/recent-documents/main')
-const ipc1 = require('../features/ipc/main')
-const screenshot = require('../features/media/screenshot/main')
-const customize_menus = require('../features/menus/customize-menus/main')
-const externallink = require('../features/menus/externallink/main')
-const quickstart = require('../features/quick-start/main')
-const fitscreen = require('../features/screen/fit-screen/main')
-const dialog_main = require('../features/dialogs/main')
-const progressbar = require('../features/Progressbar/main')
-const previewimg = require('../features/previewImg/main')
+const template = require('@utils')
+const darkmode = require('@features/darkmode/main')
+const amap = require('@features/amap/main')
+const draganddrop = require('@features/drag-and-drop/main')
+const keyboard_shortcuts_global = require('@features/keyboard-shortcuts/global/main')
+const interception_from_main = require('@features/keyboard-shortcuts/interception-from-main/main')
+const local = require('@features/keyboard-shortcuts/local/main')
+const macos_dock_menu = require('@features/macos-dock-menu/main')
+const notifications = require('@features/notifications/main')
+const offscreen_rendering = require('@features/offscreen-rendering/main')
+const recent_documents = require('@features/recent-documents/main')
+const ipc1 = require('@features/ipc/main')
+const screenshot = require('@features/media/screenshot/main')
+const customize_menus = require('@features/menus/customize-menus/main')
+const externallink = require('@features/menus/externallink/main')
+const quickstart = require('@features/quick-start/main')
+const fitscreen = require('@features/screen/fit-screen/main')
+const dialog_main = require('@features/dialogs/main')
+const progressbar = require('@features/Progressbar/main')
+const previewimg = require('@features/previewImg/main')
+
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -36,6 +39,11 @@ function createWindow() {
   win.loadURL('http://localhost:9000')
 
   win.webContents.openDevTools();
+
+  ipcMain.on('resetmenu', ()=> {
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
+  })
 
   darkmode()
   amap(win)

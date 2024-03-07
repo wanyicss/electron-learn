@@ -6,11 +6,6 @@ class Demo extends React.Component {
     this.state = {title: ''}
   }
 
-  componentDidMount() {
-    
-
-  }
-
   notifyMain = () => {
     window.ipcAPI.setTitle('named by render')
   }
@@ -38,6 +33,14 @@ class Demo extends React.Component {
       counter.innerText = newValue.toString()
       window.ipcAPI.counterValue(newValue)
     })
+  }
+
+  componentDidMount() {
+    window.ipcAPI.initipcmenu()
+  }
+
+  componentWillUnmount() {
+    window.mainAPI.resetmenu()
   }
 
   render() {

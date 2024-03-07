@@ -6,5 +6,6 @@ contextBridge.exposeInMainWorld('ipcAPI', {
   getMainInfo: (callback) => ipcRenderer.on('info', (_event, value) => callback(value)),
   openFile: () => ipcRenderer.invoke('dialog:openFile'),
   onUpdateCounter: (callback) => ipcRenderer.on('update-counter', (_event, value) => callback(value)),
-  counterValue: (value) => ipcRenderer.send('counter-value', value)
+  counterValue: (value) => ipcRenderer.send('counter-value', value),
+  initipcmenu:() => ipcRenderer.send('initipcmenu')
 })

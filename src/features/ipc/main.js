@@ -1,4 +1,6 @@
-const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron/main')
+const { BrowserWindow, ipcMain, dialog, Menu } = require('electron/main')
+const { app } = require('electron')
+const template = require('@utils')
 
 module.exports = (win) => {
   ipcMain.on('set-title', (event, title) => {
@@ -10,16 +12,17 @@ module.exports = (win) => {
     win.webContents.send('info', 'this is a message from main')
   })
 
-  ipcMain.handle('dialog:openFile', async()=>{
+  ipcMain.handle('dialog:openFile', async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog()
     if (!canceled) {
       return filePaths[0]
     }
   })
 
-  const menu = Menu.buildFromTemplate([
-    {
-      label: app.name,
+  ipcMain.on('initipcmenu', () => {
+    const newtemplate = JSON.parse(JSON.stringify(template))
+    newtemplate.push({
+      label: 'ipc-menu',
       submenu: [
         {
           click: () => win.webContents.send('update-counter', 1),
@@ -30,11 +33,14 @@ module.exports = (win) => {
           label: 'Decrement'
         }
       ]
-    }
+    })
 
-  ])
-  Menu.setApplicationMenu(menu)
+    const menu = Menu.buildFromTemplate(newtemplate)
+    Menu.setApplicationMenu(menu)
+  })
+
   ipcMain.on('counter-value', (_event, value) => {
     console.log(value) // will print value to Node console
   })
+
 }

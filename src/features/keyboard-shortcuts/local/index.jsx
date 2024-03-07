@@ -5,6 +5,14 @@ class Demo extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    window.keyboardAPI.initkeyboardmenu()
+  }
+
+  componentWillUnmount() {
+    window.mainAPI.resetmenu()
+  }
+
   render() {
     return (
       <div>

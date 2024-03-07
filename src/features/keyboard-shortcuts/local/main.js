@@ -1,15 +1,19 @@
-const { Menu, MenuItem } = require('electron/main')
+const { Menu, MenuItem, ipcMain } = require('electron/main')
+const { app } = require('electron');
+const template = require('@utils')
 
 module.exports = () => {
-  const menu = new Menu()
-  menu.append(new MenuItem({
-    label: 'Electron',
-    submenu: [{
-      role: 'help',
-      accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-      click: () => { console.log('Electron rocks!') }
-    }]
-  }))
-  
-  Menu.setApplicationMenu(menu)
+  ipcMain.on('initkeyboardmenu', () => {
+    const newtemplate = JSON.parse(JSON.stringify(template))
+    newtemplate.push({
+      label: 'keyboard-menu',
+      submenu: [{
+        role: 'help',
+        accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+        click: () => { console.log('Electron rocks!') }
+      }]
+    })
+    const menu = Menu.buildFromTemplate(newtemplate)
+    Menu.setApplicationMenu(menu)
+  })
 }
