@@ -5,19 +5,23 @@
   "description": "Software for Learning Electron",
   "scripts": {
     "start": "concurrently \"webpack serve --config webpack.config.js\" \"npm:electron\"",
-    "electron": "electron .",
-    "electrondemo": "electron fiddles/native-ui/dialogs/error-dialog/main.js"
+    "electron": "electron ."
   },
+  "homepage": "https://github.com/wanyicss/electron-learn#readme",
   "keywords": [
     "electron",
     "react",
-    "webpack"
+    "webpack",
+    "less"
   ],
   "_moduleAliases": {
     "@features": "src/features",
     "@utils": "src/utils"
   },
-  "author": "wanyi.css",
+  "author": {
+    "name": "wanyi.css",
+    "email": "chensensen315@gmail.com"
+  },
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
@@ -44,5 +48,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "repository": "https://github.com/wanyicss/electron-learn.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wanyicss/electron-learn.git"
+  }
 }
